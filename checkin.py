@@ -56,7 +56,7 @@ if __name__ == '__main__':
                 message_status = "今日已签到"
             else:
                 fail += 1
-                message_status = "签到失败，请检查..."
+                message_status = "签到失败，请检查..." + status
 
             if leftdays is not None:
                 message_days = f"{leftdays} 天"
