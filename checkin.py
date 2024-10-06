@@ -41,32 +41,14 @@ if __name__ == '__main__':
             result = checkin.json()     
             # 获取签到结果
             status = result.get('message')
-
-            # 获取账号当前状态
-            result = state.json()
-            # 获取剩余时间
-            leftdays = int(float(result['data']['leftDays']))
-            # 获取账号email
-            email = result['data']['email']
-
+            
             success += 1
             message_status = status
-
-            if leftdays is not None:
-                message_days = f"{leftdays} 天"
-            else:
-                message_days = "无法获取剩余天数信息"
         else:
             email = ""
             fail += 1
             message_status = "签到请求url失败, 请检查..."
             message_days = "获取信息失败"
-
-        # 推送内容
-        sendContent += f"{'-'*30}\n\
-            账号: {email}\n\
-            签到情况: {message_status}\n\
-            剩余天数: {message_days}\n"
         
         if cookie == cookies[-1]:
             sendContent += '-' * 30
