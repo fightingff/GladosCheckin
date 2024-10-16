@@ -22,7 +22,7 @@ jobs:
           pip install requests
       - name: Run checkin
         run: |
-          python3 glados.py
+          python3 checkin.py
         env: 
           PUSHPLUS: ${{ secrets.PUSHPLUS }}
           COOKIES: ${{ secrets.COOKIES }}
